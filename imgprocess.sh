@@ -14,7 +14,7 @@ read -p "Input the format: " format
 
 while read imgfile
 do
-  extract_name
+	extract_name
 	case $option in
 		1)
 		convert $imgfile -resize $input $pathfile.$format
