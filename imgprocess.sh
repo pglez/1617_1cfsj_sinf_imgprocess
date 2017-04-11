@@ -1,21 +1,25 @@
 #!/bin/bash
 
-# Script to convert all image jpeg files from a directory (argument) into png format file
-# and it also reduces size of images 
+function extract_name () {
+	filename=$(basename "$imgfile")
+	path=$(dirname "$imgfile")
+	namefile="${filename%.*}"
+	pathfile="$path/$namefile"
+}
 
-# Sanity checks ?
-# ...
+load="/home/adrian/Atom/Prueba"
+ls -1 $load*.* > .imagefiles.tmp
 
-# Main code
+format="png"
 
-ls -1 $1*.jpg > .imagefiles.tmp
+echo "Comment:"
+read comment
 
-while read imgfile 
+while read imgfile
 do
-	lengthname=${#imgfile}
-	namefile=${imgfile;0;($lengthname-4)}
-	convert $imgfile -resize 200x200 $namefile.png	
+	extract_name
+	convert -comment "$comment" $imgfile.$format
 
 done < .imagefiles.tmp
-rm imagefiles.tmp
+rm .imagefiles.tmp
 exit 0
