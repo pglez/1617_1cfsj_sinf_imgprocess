@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 FILE=`dirname $0`/COPYING
 #license
 zenity --text-info \
