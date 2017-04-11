@@ -1,3 +1,8 @@
+
+
+
+
+
 #!/bin/bash
 function resize-format () {
   #option=2
@@ -67,4 +72,18 @@ function watermark () {
       composite -tile - $imgfile  $pathfile.$format
   done < .imagefiles.tmp
   rm .imagefiles.tmp
+}
+function image-edit () {
+	ls -1 $load*.* > .imagefiles.tmp
+	format="png"
+
+	while read imgfile
+	do
+		extract_name
+
+		convert $imgfile -auto-level $pathfile.$format
+
+
+	done < .imagefiles.tmp
+	rm .imagefiles.tmp
 }
