@@ -1,13 +1,4 @@
-#!/bin/bash
-
-function extract_name () {
-	filename=$(basename "$imgfile")
-	path=$(dirname "$imgfile")
-	namefile="${filename%.*}"
-	pathfile="$path/$namefile"
-}
-
-load="/home/adrian/Atom/Prueba"
+function () {
 ls -1 $load*.* > .imagefiles.tmp
 
 format="png"
