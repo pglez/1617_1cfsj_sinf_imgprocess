@@ -1,3 +1,4 @@
+#!/bin/bash
 function resize-format () {
   #option=2
   #read -p "Force or not(0-1): " force
