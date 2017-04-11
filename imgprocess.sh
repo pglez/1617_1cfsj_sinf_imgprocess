@@ -1,16 +1,11 @@
-function () {
-ls -1 $load*.* > .imagefiles.tmp
+function comment () {
+	ls -1 $load*.* > .imagefiles.tmp
 
-format="png"
+	while read imgfile
+	do
+		extract_name
+		convert -comment "$comment" $imgfile.$format
 
-echo "Comment:"
-read comment
-
-while read imgfile
-do
-	extract_name
-	convert -comment "$comment" $imgfile.$format
-
-done < .imagefiles.tmp
-rm .imagefiles.tmp
-exit 0
+	done < .imagefiles.tmp
+	rm .imagefiles.tmp
+}
