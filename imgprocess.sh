@@ -27,7 +27,6 @@ function resize-format () {
 
 function watermark () {
   ls -1 $load*.* > .imagefiles.tmp
-
   format="png"
   read -p "Introduce the watermark text: " watermark
   while read imgfile
@@ -39,7 +38,6 @@ function watermark () {
             -gravity SouthEast -pointsize 15 -draw "text 5,15 '$watermark'" \
             miff:- |\
       composite -tile - $imgfile  $pathfile.$format
-
   done < .imagefiles.tmp
   rm .imagefiles.tmp
 }
