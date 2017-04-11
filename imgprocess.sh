@@ -1,11 +1,11 @@
-ls -1 $1*.jpg > .imagefiles.tmp
+function rotate () {
+	ls -1 $load*.* > .imagefiles.tmp
 
-while read imgfile
-do
-	lengthname=${#imgfile}
-	namefile=${imgfile;0;($lengthname-4)}
-	convert -rotate $1 $imgfile $imgfile
+	while read imgfile
+	do
 
-done < .imagefiles.tmp
-rm imagefiles.tmp
-exit 0
+		convert -rotate $valuerotate $imgfile $imgfile
+
+	done < .imagefiles.tmp
+	rm imagefiles.tmp
+}
