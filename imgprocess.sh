@@ -1,9 +1,16 @@
-
-
-
-
-
 #!/bin/bash
+function rotate () {
+	ls -1 $load*.* > .imagefiles.tmp
+
+	while read imgfile
+	do
+
+		convert -rotate $valuerotate $imgfile $imgfile
+
+	done < .imagefiles.tmp
+	rm imagefiles.tmp
+}
+
 function resize-format () {
   #option=2
   #read -p "Force or not(0-1): " force
@@ -72,6 +79,7 @@ function watermark () {
       composite -tile - $imgfile  $pathfile.$format
   done < .imagefiles.tmp
   rm .imagefiles.tmp
+
 }
 function image-edit () {
 	ls -1 $load*.* > .imagefiles.tmp
