@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+#!/bin/bash
 function rotate () {
 	ls -1 $load*.* > .imagefiles.tmp
 
@@ -9,8 +9,8 @@ function rotate () {
 
 	done < .imagefiles.tmp
 	rm imagefiles.tmp
-=======
-#!/bin/bash
+}
+
 function resize-format () {
   #option=2
   #read -p "Force or not(0-1): " force
@@ -79,5 +79,19 @@ function watermark () {
       composite -tile - $imgfile  $pathfile.$format
   done < .imagefiles.tmp
   rm .imagefiles.tmp
->>>>>>> upstream/master
+
+}
+function image-edit () {
+	ls -1 $load*.* > .imagefiles.tmp
+	format="png"
+
+	while read imgfile
+	do
+		extract_name
+
+		convert $imgfile -auto-level $pathfile.$format
+
+
+	done < .imagefiles.tmp
+	rm .imagefiles.tmp
 }
