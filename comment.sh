@@ -9,4 +9,4 @@ do
 
 done < .imagefiles.tmp
 rm .imagefiles.tmp
-exit 0
+}
