@@ -1,9 +1,9 @@
 #!/bin/bash
 function resize-format () {
   #option=2
-  #read -p "Force or not(0-1): " force
-  #read -p "Input the size: " input
-  #read -p "Input the format: " format
+  #read -p "Force or not(0-1): " force  | Get from GUI
+  #read -p "Input the size: " input  | Get from GUI
+  #read -p "Input the format: " format  | Get from GUI
   ls -1 $load*.* > .imagefiles.tmp
   while read imgfile
   do
@@ -27,8 +27,8 @@ function resize-format () {
 
 function watermark () {
   ls -1 $load*.* > .imagefiles.tmp
-  format="png"
-  read -p "Introduce the watermark text: " watermark
+  #format="png"  |  Get the format from the GUI.
+  #read -p "Introduce the watermark text: " watermark  |  Get the watermark text form GUI
   while read imgfile
   do
     extract_name
